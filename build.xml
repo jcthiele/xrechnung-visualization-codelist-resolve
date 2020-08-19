@@ -1,0 +1,452 @@
+<?xml version="1.0"?>
+ <project name="codelist.resolve" basedir="." default="clean">
+
+	
+	<!-- locations, files and urls specifications -->
+	<property name="src.dir" location="${basedir}/src" />
+	<property name="build.dir" location="${basedir}/build" />
+
+	<property name="test.dir" location="${basedir}/test" />
+
+	<property name="lib.dir" location="${basedir}/lib" />
+	
+	<property name="documentation.pdf" value="Dokumentation.pdf" />
+
+	<property name="download.dir" location="${basedir}/download" />
+	<property name="code.xsl.dir" location="${basedir}/code-xsl" />
+	<property name="genericode.dir" location="${basedir}/gc-codelists" />
+
+ 	<property name="saxon.url" value="https://sourceforge.net/projects/saxon/files/Saxon-HE/9.8/SaxonHE9-8-0-8J.zip/download" />
+	<property name="saxon.zip" value="SaxonHE9-8-0-8J.zip" />
+	<property name="saxon.jar" value="saxon9he.jar" />
+
+ 	<property name="ant-contrib.url" value="https://sourceforge.net/projects/ant-contrib/files/ant-contrib/ant-contrib-1.0b2/ant-contrib-1.0b2-bin.zip/download" />
+	<property name="ant-contrib.zip" value="ant-contrib.zip" />
+	<property name="ant-contrib.jar" value="ant-contrib.jar" />
+
+ 	<property name="genericode.transformator" location="${src.dir}/genericode2xsltemplate_param.xsl" />
+
+ 	<property name="ubl.invoice.xsl" value="ubl-invoice-xr.xsl" />
+ 	<property name="ubl.creditnote.xsl" value="ubl-creditnote-xr.xsl" />
+ 	<property name="uncefact.xsl" value="cii-xr.xsl" />
+ 	<property name="html.xsl" value="xrechnung-html.xsl" />
+
+
+	<property name="1001.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.1001_2/genericode" />
+	<property name="1001.filename" value="1001.xml" />
+	<property name="1001.xsl" value="${code.xsl.dir}/1001.xsl" />
+
+	<property name="1153.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.1153_2/genericode" />
+	<property name="1153.filename" value="1153.xml" />
+	<property name="1153.xsl" value="${code.xsl.dir}/1153.xsl" />
+
+	<property name="2005.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.2005_2/genericode" />
+	<property name="2005.filename" value="2005.xml" />
+	<property name="2005.xsl" value="${code.xsl.dir}/2005.xsl" />
+
+	<property name="3166.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:country-codes_4/genericode" />
+	<property name="3166.filename" value="3166.xml" />
+	<property name="3166.xsl" value="${code.xsl.dir}/3166.xsl" />
+
+	<property name="4217.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:currency-codes_2/genericode" />
+	<property name="4217.filename" value="4217.xml" />
+	<property name="4217.xsl" value="${code.xsl.dir}/4217.xsl" />
+
+	<property name="4451.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.4451_2/genericode" />
+	<property name="4451.filename" value="4451.xml" />
+	<property name="4451.xsl" value="${code.xsl.dir}/4451.xsl" />
+
+	<property name="4461.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:xrechnung:codeliste:untdid.4461_2/genericode" />
+	<property name="4461.filename" value="4461.xml" />
+	<property name="4461.xsl" value="${code.xsl.dir}/4461.xsl" />
+
+	<property name="5189.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.5189_2/genericode" />
+	<property name="5189.filename" value="5189.xml" />
+	<property name="5189.xsl" value="${code.xsl.dir}/5189.xsl" />
+
+	<property name="5305.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.5305_2/genericode" />
+	<property name="5305.filename" value="5305.xml" />
+	<property name="5305.xsl" value="${code.xsl.dir}/5305.xsl" />
+
+	<!-- not available as genericode - needs manual processing... -->
+	<property name="6523.xsl" value="6523.xsl" />
+
+	<property name="7143.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.7143_2/genericode" />
+	<property name="7143.filename" value="7143.xml" />
+	<property name="7143.xsl" value="${code.xsl.dir}/7143.xsl" />
+
+	<property name="7161.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.7161_2/genericode" />
+	<property name="7161.filename" value="7161.xml" />
+	<property name="7161.xsl" value="${code.xsl.dir}/7161.xsl" />
+
+	<property name="EAS.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:eas_1/genericode" />
+	<property name="EAS.filename" value="EAS.xml" />
+	<property name="EAS.xsl" value="${code.xsl.dir}/EAS.xsl" />
+
+	<property name="UNECE-RE-20.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:rec20_1/genericode" />
+	<property name="UNECE-RE-20.filename" value="UNECE-RE-20.xml" />
+	<property name="UNECE-RE-20.xsl" value="${code.xsl.dir}/UNECE-RE-20.xsl" />
+
+	<!-- not available as genericode - needs manual processing... -->
+	<property name="UNECE-RE-21.url" value="https://www.unece.org/fileadmin/DAM/cefact/recommendations/rec21/Rec21rev11e_Annex-V-VI_2020.xls" />
+	<property name="UNECE-RE-21.filename" value="UNECE-RE-21.xls" />
+	<property name="UNECE-RE-21.xsl" value="UNECE-RE-21.xsl" />
+
+	<property name="VATEX.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:vatex_1/genericode" />
+	<property name="VATEX.filename" value="VATEX.xml" />
+	<property name="VATEX.xsl" value="${code.xsl.dir}/VATEX.xsl" />
+
+
+	
+	<!-- visualization tool -->
+	<property name="visualization.download.url" value="https://github.com/itplr-kosit/xrechnung-visualization/releases/download/v2020-07-31/xrechnung-2.0.0-xrechnung-visualization-2020-07-31.zip" />
+	<property name="testsuite.download.url" value="https://github.com/itplr-kosit/xrechnung-testsuite/releases/download/release-2020-07-31/xrechnung-2.0.0-testsuite-2020-07-31.zip" />
+	
+	
+	
+    <tstamp>
+        <format property="build.date" pattern="yyyy-MM-dd" />
+    </tstamp>
+
+
+	<!-- create directory structure -->
+	<target name="init" description="Initializes build directory structure and ISO timestamp">
+
+		<echo>Build date: ${build.date}</echo>
+        <!-- Create the build directory structure used by compile -->
+        <mkdir dir="${genericode.dir}" />
+        <mkdir dir="${code.xsl.dir}" />	
+        <mkdir dir="${download.dir}" />	
+        <mkdir dir="${build.dir}" />	
+        <mkdir dir="${lib.dir}" />	
+	</target>
+
+
+	<!-- donwload genericode codelists fro XRepository -->
+    <target name="get-genericode-codelists" depends="init" description="Download codelists">
+        <get src="${1001.url}" dest="${genericode.dir}/${1001.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
+        <get src="${1153.url}" dest="${genericode.dir}/${1153.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
+        <get src="${2005.url}" dest="${genericode.dir}/${2005.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
+        <get src="${3166.url}" dest="${genericode.dir}/${3166.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
+        <get src="${4217.url}" dest="${genericode.dir}/${4217.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
+        <get src="${4451.url}" dest="${genericode.dir}/${4451.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
+        <get src="${4461.url}" dest="${genericode.dir}/${4461.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
+        <get src="${5189.url}" dest="${genericode.dir}/${5189.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
+        <get src="${5305.url}" dest="${genericode.dir}/${5305.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
+        <get src="${7143.url}" dest="${genericode.dir}/${7143.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
+        <get src="${7161.url}" dest="${genericode.dir}/${7161.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
+        <get src="${EAS.url}" dest="${genericode.dir}/${EAS.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
+        <get src="${UNECE-RE-20.url}" dest="${genericode.dir}/${UNECE-RE-20.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
+        <get src="${UNECE-RE-21.url}" dest="${genericode.dir}/${UNECE-RE-21.filename}" verbose="true" skipexisting="true" usetimestamp="true" />	
+        <get src="${VATEX.url}" dest="${genericode.dir}/${VATEX.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
+	</target>
+  
+  
+	<!-- download saxon -->
+    <target name="prepare-saxon" depends="init" description="Download Saxon-HE and add jar to library directory">
+        <get src="${saxon.url}" dest="${download.dir}/${saxon.zip}" verbose="true" skipexisting="true" usetimestamp="true" />
+        <unzip src="${download.dir}/${saxon.zip}" dest="${lib.dir}">
+            <patternset>
+                <include name="**/${saxon.jar}" />
+            </patternset>
+            <flattenmapper />
+        </unzip>
+    </target>  
+
+  
+	<!-- build -->
+    <target name="build" depends="get-genericode-codelists, prepare-saxon" description="Build the transformators">
+
+		<!-- TODO: consider replacing by a loop ? -->
+        <echo>Creating xsl ${1001.filename}...</echo>
+        <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${basedir}">
+            <arg value="-s:${genericode.dir}/${1001.filename}" />
+            <arg value="-xsl:${genericode.transformator}" />
+            <arg value="-o:${1001.xsl}" />
+            <arg value="code=code" />
+            <arg value="name=name" />
+        </java>
+
+        <echo>Creating xsl ${1153.filename}...</echo>
+        <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${basedir}">
+            <arg value="-s:${genericode.dir}/${1153.filename}" />
+            <arg value="-xsl:${genericode.transformator}" />
+            <arg value="-o:${1153.xsl}" />
+            <arg value="code=code" />
+            <arg value="name=name" />
+        </java>
+
+        <echo>Creating xsl ${2005.filename}...</echo>
+        <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${basedir}">
+            <arg value="-s:${genericode.dir}/${2005.filename}" />
+            <arg value="-xsl:${genericode.transformator}" />
+            <arg value="-o:${2005.xsl}" />
+            <arg value="code=code" />
+            <arg value="name=name" />
+        </java>
+
+        <echo>Creating xsl ${3166.filename}...</echo>
+        <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${basedir}">
+            <arg value="-s:${genericode.dir}/${3166.filename}" />
+            <arg value="-xsl:${genericode.transformator}" />
+            <arg value="-o:${3166.xsl}" />
+            <arg value="code=ISOAlpha2code" />
+            <arg value="name=ShortName" />
+        </java>		
+
+        <echo>Creating xsl ${4217.filename}...</echo>
+        <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${basedir}">
+            <arg value="-s:${genericode.dir}/${4217.filename}" />
+            <arg value="-xsl:${genericode.transformator}" />
+            <arg value="-o:${4217.xsl}" />
+            <arg value="code=AlphabeticCode" />
+            <arg value="name=Currency" />
+        </java>	
+
+        <echo>Creating xsl ${4451.filename}...</echo>
+        <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${basedir}">
+            <arg value="-s:${genericode.dir}/${4451.filename}" />
+            <arg value="-xsl:${genericode.transformator}" />
+            <arg value="-o:${4451.xsl}" />
+            <arg value="code=code" />
+            <arg value="name=name" />
+        </java>			
+
+        <echo>Creating xsl ${4461.filename}...</echo>
+        <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${basedir}">
+            <arg value="-s:${genericode.dir}/${4461.filename}" />
+            <arg value="-xsl:${genericode.transformator}" />
+            <arg value="-o:${4461.xsl}" />
+            <arg value="code=code" />
+            <arg value="name=name" />
+        </java>	
+
+        <echo>Creating xsl ${5189.filename}...</echo>		
+        <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${basedir}">
+            <arg value="-s:${genericode.dir}/${5189.filename}" />
+            <arg value="-xsl:${genericode.transformator}" />
+            <arg value="-o:${5189.xsl}" />
+            <arg value="code=code" />
+            <arg value="name=name" />
+        </java>			
+
+        <echo>Creating xsl ${5305.filename}...</echo>
+        <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${basedir}">
+            <arg value="-s:${genericode.dir}/${5305.filename}" />
+            <arg value="-xsl:${genericode.transformator}" />
+            <arg value="-o:${5305.xsl}" />
+            <arg value="code=code" />
+            <arg value="name=name" />
+        </java>	
+
+        <echo>Creating xsl ${7143.filename}...</echo>
+        <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${basedir}">
+            <arg value="-s:${genericode.dir}/${7143.filename}" />
+            <arg value="-xsl:${genericode.transformator}" />
+            <arg value="-o:${7143.xsl}" />
+            <arg value="code=code" />
+            <arg value="name=name" />
+        </java>			
+
+		<!-- replace reserved character & by &amp; -->
+		<replace file="${7143.xsl}">
+		  <replacetoken><![CDATA[&]]></replacetoken>
+		  <replacevalue><![CDATA[&amp;]]></replacevalue>
+		</replace>
+
+        <echo>Creating xsl ${7161.filename}...</echo>
+        <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${basedir}">
+            <arg value="-s:${genericode.dir}/${7161.filename}" />
+            <arg value="-xsl:${genericode.transformator}" />
+            <arg value="-o:${7161.xsl}" />
+            <arg value="code=code" />
+            <arg value="name=name" />
+        </java>	
+
+        <echo>Creating xsl ${EAS.filename}...</echo>
+        <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${basedir}">
+            <arg value="-s:${genericode.dir}/${EAS.filename}" />
+            <arg value="-xsl:${genericode.transformator}" />
+            <arg value="-o:${EAS.xsl}" />
+            <arg value="code=aesc" />
+            <arg value="name=scheme-name" />
+        </java>			
+
+        <echo>Creating xsl ${UNECE-RE-20.filename}...</echo>
+        <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${basedir}">
+            <arg value="-s:${genericode.dir}/${UNECE-RE-20.filename}" />
+            <arg value="-xsl:${genericode.transformator}" />
+            <arg value="-o:${UNECE-RE-20.xsl}" />
+            <arg value="code=code" />
+            <arg value="name=name" />
+        </java>	
+
+        <echo>Creating xsl ${VATEX.filename}...</echo>
+        <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${basedir}">
+            <arg value="-s:${genericode.dir}/${VATEX.filename}" />
+            <arg value="-xsl:${genericode.transformator}" />
+            <arg value="-o:${VATEX.xsl}" />
+            <arg value="code=Code" />
+            <arg value="name=code-name" />
+        </java>	
+
+
+		<!-- copy everthing necessary into build folder -->
+		<copy todir="${build.dir}">
+		  <fileset dir="${src.dir}">
+			<include name="**/${uncefact.xsl}" />
+			<include name="**/${ubl.creditnote.xsl}" />
+			<include name="**/${ubl.invoice.xsl}" />
+			<include name="**/${UNECE-RE-21.xsl}" />
+			<include name="**/${6523.xsl}" />						
+		  </fileset>
+		</copy>
+		<copy todir="${build.dir}">
+		  <fileset dir="${code.xsl.dir}"/>
+		</copy>
+		
+	</target>
+
+
+	<!-- run tests -->
+	<target name="test" depends="build" description="Create test scenario">
+
+		<!--  get xrechnung visualization from kosit github repository -->
+        <get src="${visualization.download.url}" dest="${download.dir}/viz.zip" verbose="true" skipexisting="true" usetimestamp="true" />
+        <unzip src="${download.dir}/viz.zip" dest="${test.dir}" />
+
+		<!--  get xrechnung testsuite from kosit github repository -->
+        <get src="${testsuite.download.url}" dest="${download.dir}/test.zip" verbose="true" skipexisting="true" usetimestamp="true" />
+        <unzip src="${download.dir}/test.zip" dest="${test.dir}" />
+
+		<!-- copy xsl files -->
+		<copy todir="${test.dir}/xsl" overwrite="true">
+		  <fileset dir="${build.dir}"/>
+		</copy>
+
+		<!-- copy saxon -->
+		<copy todir="${test.dir}/lib" overwrite="true">
+		  <fileset dir="${lib.dir}"/>
+		</copy>		
+		
+		<!-- create output directory -->
+		<mkdir dir="${test.dir}/testresults" />	
+
+		<!-- download ant-contrib -->
+		<get src="${ant-contrib.url}" dest="${download.dir}/${ant-contrib.zip}" verbose="true" skipexisting="true" usetimestamp="true" />
+		<unzip src="${download.dir}/${ant-contrib.zip}" dest="${lib.dir}">
+			<patternset>
+				<include name="**/${ant-contrib.jar}" />
+			</patternset>
+			<flattenmapper />
+		</unzip>
+		
+		<!-- include stuff from ant-contrib -->
+		<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+		  <classpath>
+			<pathelement location="${lib.dir}/ant-contrib.jar"/>
+		  </classpath>
+		</taskdef>
+		
+		<!-- iterate over all test instances - using ant-contrib -->
+		<!-- needs ant-contrib -->
+		<!-- for ubl instances -->
+		<foreach target="testrun_ubl" param="inFile">
+			<path>
+				<fileset dir="${test.dir}/instances" casesensitive="no">
+				  <include name="**/*INVOICE_ubl.xml"/>
+				  <exclude name="**/*INVOICE_uncefact.xml"/>
+				</fileset>
+			</path>
+		</foreach>
+
+		<!-- for un/cefact cii instances -->
+		<foreach target="testrun_uncefact" param="inFile">
+			<path>
+				<fileset dir="${test.dir}/instances" casesensitive="no">
+				  <include name="**/*INVOICE_uncefact.xml"/>
+				  <exclude name="**/*INVOICE_ubl.xml"/>
+				</fileset>
+			</path>
+		</foreach>
+		
+	</target>
+	
+	<!-- run ubl invoice tests -->
+	<target name="testrun_ubl">
+		<echo message="${inFile}"/>
+		<basename property="filename" file="${inFile}" suffix=".xml"/>
+        <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${test.dir}">
+            <arg value="-s:${inFile}" />
+            <arg value="-xsl:xsl/${ubl.invoice.xsl}" />
+            <arg value="-o:testresults/intermediate.xml" />
+        </java>	
+
+        <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${test.dir}">
+            <arg value="-s:testresults/intermediate.xml" />
+            <arg value="-xsl:xsl/${html.xsl}" />
+            <arg value="-o:testresults/${filename}.html" />
+        </java>	
+		
+		<delete file="testresults/intermediate.xml"/>
+	</target>
+
+			
+	<!-- run uncefact cii tests -->
+	<target name="testrun_uncefact">
+		<echo message="${inFile}"/>
+		<basename property="filename" file="${inFile}" suffix=".xml"/>
+
+        <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${test.dir}">
+            <arg value="-s:${inFile}" />
+            <arg value="-xsl:xsl/${uncefact.xsl}" />
+            <arg value="-o:testresults/intermediate.xml" />
+        </java>	
+
+        <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${test.dir}">
+            <arg value="-s:testresults/intermediate.xml" />
+            <arg value="-xsl:xsl/${html.xsl}" />
+            <arg value="-o:testresults/${filename}.html" />
+        </java>	
+		
+		<delete file="testresults/intermediate.xml"/>
+	</target>
+	
+	
+	<!-- create build.zip file for distribution --> 
+	<target name="build-package" depends="test" description="Packages the build and src.">
+		<!-- build zip -->
+		<zip destfile="${build.date}_build.zip">
+			<zipfileset dir="${build.dir}" prefix="xsl"/>
+			<!--<fileset dir="." includes="build.xml"/>-->
+			<fileset dir="." includes="${documentation.pdf}"/>
+		</zip>		
+
+		<!-- src package -->
+		<zip destfile="${build.date}_src.zip">
+			<zipfileset dir="${src.dir}" prefix="src"/>
+			<fileset dir="." includes="build.xml"/>
+			<fileset dir="." includes="${documentation.pdf}"/>
+		</zip>				
+	</target>
+
+	
+	<!-- clean up  -->
+	<target name="clean" depends="build-package" description="Clean up.">
+		<!-- delete folders -->
+		<delete dir="${download.dir}" />
+		<delete dir="${genericode.dir}" />
+		<delete dir="${code.xsl.dir}" />
+		<delete dir="${build.dir}" />
+        <delete dir="${dist.dir}" />
+		<!-- <delete dir="${test.dir}" /> -->
+		<!-- not deletable as ant-contrib is used here... -->
+		<!--<delete dir="${lib.dir}" />-->
+	</target>
+
+	
+
+</project>
+
+
+
