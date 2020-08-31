@@ -15,14 +15,6 @@ Resolving codelists for XRechnung-Visualization
 	} 	
 </style>
 
-<formaction="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input  style="text-align:center;" type="hidden" name="cmd" value="_s-xclick" />
-<input  style="text-align:center;" type="hidden" name="hosted_button_id" value="TSKNUKCM9KL3L" />
-<input  style="text-align:center;" type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-<img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
-</form>
-
-
 Mit den im GitHub Repositorium der KoSIT bereitgestellten XSL Transformatoren ([https://github.com/itplr-kosit/xrechnung-visualization](https://github.com/itplr-kosit/xrechnung-visualization)) kann eine elektronische Rechnung gem. der Europäischen Norm EN16931 sowie davon abgeleitete CIUS, wie z.B. XRechnung, in eine HTML- oder PDF-Ansicht überführt werden.
 
 Mit den hier bereitgestellten Skripten kann innerhalb dieser XSL Transformation zusätzlich zu den enthaltenen Codelistenwerten eine Beschreibung des jeweiligen Codelistenwertes ergänzt werden. Die originalen Codewerte werden dazu nicht verändert, sondern die Beschreibung lediglich in Klammer ergänzt.
@@ -39,3 +31,9 @@ Die Codelisten-Auflösung ist Bestandteil der [OpenXRechnungToolbox](https://jct
 <!-- Auto width -->
 <center><a href="https://github.com/jcthiele/xrechnung-visualization-codelist-resolve/releases" target="_blank"><button class="btn"><i class="fa fa-download"></i> Download</button></a></center>
 
+<form style="text-align:center;" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick" />
+<input type="hidden" name="hosted_button_id" value="TSKNUKCM9KL3L" />
+<input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+<img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
