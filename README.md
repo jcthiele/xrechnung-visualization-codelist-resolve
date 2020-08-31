@@ -1,3 +1,6 @@
+# xrechnung-visualization-codelist-resolve
+Resolving codelists for XRechnung-Visualization
+
 <style>
 	.btn {
 	  background-color: #0090ff;
@@ -11,9 +14,6 @@
 	  background-color: RoyalBlue;
 	} 	
 </style>
-
-# xrechnung-visualization-codelist-resolve
-Resolving codelists for XRechnung-Visualization
 
 Mit den im GitHub Repositorium der KoSIT bereitgestellten XSL Transformatoren (https://github.com/itplr-kosit/xrechnung-visualization) kann eine elektronische Rechnung gem. der Europäischen Norm EN16931 sowie davon abgeleitete CIUS, wie z.B. XRechnung, in eine HTML- oder PDF-Ansicht überführt werden.
 
