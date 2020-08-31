@@ -30,3 +30,11 @@ Die Codelisten-Auflösung ist Bestandteil der [OpenXRechnungToolbox](https://jct
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- Auto width -->
 <center><a href="https://github.com/jcthiele/xrechnung-visualization-codelist-resolve/releases" target="_blank"><button class="btn"><i class="fa fa-download"></i> Download</button></a></center>
+
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick" />
+<input type="hidden" name="hosted_button_id" value="TSKNUKCM9KL3L" />
+<input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+<img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
+</form>
