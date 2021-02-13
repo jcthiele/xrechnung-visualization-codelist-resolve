@@ -68,7 +68,12 @@
 	<property name="5305.filename" value="5305.xml" />
 	<property name="5305.xsl" value="${code.xsl.dir}/5305.xsl" />
 
-	<!-- not available as genericode - needs manual processing... -->
+	<!-- available as genericode - but needs manual processing, due to many special characters... -->
+	<!--
+	<property name="6523.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:icd_2/genericode" />
+	<property name="6523.filename" value="ICD-2.xml" />
+	<property name="6523.xsl" value="${code.xsl.dir}/6523.xsl" />
+	-->
 	<property name="6523.xsl" value="6523.xsl" />
 
 	<property name="7143.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.7143_2/genericode" />
@@ -87,10 +92,14 @@
 	<property name="UNECE-RE-20.filename" value="UNECE-RE-20.xml" />
 	<property name="UNECE-RE-20.xsl" value="${code.xsl.dir}/UNECE-RE-20.xsl" />
 
-	<!-- not available as genericode - needs manual processing... -->
-	<property name="UNECE-RE-21.url" value="https://www.unece.org/fileadmin/DAM/cefact/recommendations/rec21/Rec21rev11e_Annex-V-VI_2020.xls" />
-	<property name="UNECE-RE-21.filename" value="UNECE-RE-21.xls" />
+	<!-- available as genericode - but needs manual processing, due to cascading Rec20 and Rec21... -->
+	<!--
+	<property name="UNECE-RE-21.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:rec21_2/genericode" />
+	<property name="UNECE-RE-21.filename" value="UN_ECE_Recommendation_N_21-2.xml" />
+	<property name="UNECE-RE-21.xsl" value="${code.xsl.dir}/UNECE-RE-21.xsl" />
+	-->
 	<property name="UNECE-RE-21.xsl" value="UNECE-RE-21.xsl" />
+	
 
 	<property name="VATEX.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:vatex_1/genericode" />
 	<property name="VATEX.filename" value="VATEX.xml" />
@@ -99,9 +108,8 @@
 
 	
 	<!-- visualization tool -->
-	<property name="visualization.download.url" value="https://github.com/itplr-kosit/xrechnung-visualization/releases/download/v2020-07-31/xrechnung-2.0.0-xrechnung-visualization-2020-07-31.zip" />
-	<property name="testsuite.download.url" value="https://github.com/itplr-kosit/xrechnung-testsuite/releases/download/release-2020-07-31/xrechnung-2.0.0-testsuite-2020-07-31.zip" />
-	
+	<property name="visualization.download.url" value="https://github.com/itplr-kosit/xrechnung-visualization/releases/download/v2020-12-31/xrechnung-2.0.1-xrechnung-visualization-2020-12-31.zip" />
+	<property name="testsuite.download.url" value="https://github.com/itplr-kosit/xrechnung-testsuite/releases/download/release-2020-12-31/xrechnung-2.0.1-testsuite-2020-12-31.zip" />
 	
 	
     <tstamp>
@@ -133,11 +141,16 @@
         <get src="${4461.url}" dest="${genericode.dir}/${4461.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
         <get src="${5189.url}" dest="${genericode.dir}/${5189.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
         <get src="${5305.url}" dest="${genericode.dir}/${5305.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
+        <!--
+		<get src="${6523.url}" dest="${genericode.dir}/${6523.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
+		-->
         <get src="${7143.url}" dest="${genericode.dir}/${7143.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
         <get src="${7161.url}" dest="${genericode.dir}/${7161.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
         <get src="${EAS.url}" dest="${genericode.dir}/${EAS.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
         <get src="${UNECE-RE-20.url}" dest="${genericode.dir}/${UNECE-RE-20.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
+		<!--
         <get src="${UNECE-RE-21.url}" dest="${genericode.dir}/${UNECE-RE-21.filename}" verbose="true" skipexisting="true" usetimestamp="true" />	
+		-->
         <get src="${VATEX.url}" dest="${genericode.dir}/${VATEX.filename}" verbose="true" skipexisting="true" usetimestamp="true" />
 	</target>
   
@@ -239,6 +252,24 @@
             <arg value="name=name" />
         </java>	
 
+		<!--
+        <echo>Creating xsl ${6523.filename}...</echo>
+        <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${basedir}">
+            <arg value="-s:${genericode.dir}/${6523.filename}" />
+            <arg value="-xsl:${genericode.transformator}" />
+            <arg value="-o:${6523.xsl}" />
+            <arg value="code=code" />
+            <arg value="name=scheme-name" />
+        </java>	
+		-->
+		<!-- replace reserved character & by &amp; -->
+		<!--		
+		<replace file="${6523.xsl}">
+		  <replacetoken><![CDATA[&]]></replacetoken>
+		  <replacevalue><![CDATA[&amp;]]></replacevalue>
+		</replace>
+		-->		
+
         <echo>Creating xsl ${7143.filename}...</echo>
         <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${basedir}">
             <arg value="-s:${genericode.dir}/${7143.filename}" />
@@ -252,7 +283,7 @@
 		<replace file="${7143.xsl}">
 		  <replacetoken><![CDATA[&]]></replacetoken>
 		  <replacevalue><![CDATA[&amp;]]></replacevalue>
-		</replace>
+		</replace>		
 
         <echo>Creating xsl ${7161.filename}...</echo>
         <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${basedir}">
@@ -280,7 +311,18 @@
             <arg value="code=code" />
             <arg value="name=name" />
         </java>	
-
+		
+		<!--
+        <echo>Creating xsl ${UNECE-RE-21.filename}...</echo>
+        <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${basedir}">
+            <arg value="-s:${genericode.dir}/${UNECE-RE-21.filename}" />
+            <arg value="-xsl:${genericode.transformator}" />
+            <arg value="-o:${UNECE-RE-21.xsl}" />
+            <arg value="code=code" />
+            <arg value="name=name" />
+        </java>	
+		-->
+		
         <echo>Creating xsl ${VATEX.filename}...</echo>
         <java jar="${lib.dir}/${saxon.jar}" failonerror="yes" fork="yes" dir="${basedir}">
             <arg value="-s:${genericode.dir}/${VATEX.filename}" />
@@ -298,7 +340,7 @@
 			<include name="**/${ubl.creditnote.xsl}" />
 			<include name="**/${ubl.invoice.xsl}" />
 			<include name="**/${UNECE-RE-21.xsl}" />
-			<include name="**/${6523.xsl}" />						
+			<include name="**/${6523.xsl}" />	
 		  </fileset>
 		</copy>
 		<copy todir="${build.dir}">
