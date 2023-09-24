@@ -2,6 +2,16 @@
 
 Documentation of notable changes to xrechnung-visualization-codelist-resolve.
 
+## 2023-09-24
+
+This release is compatible to XRechnung 3.0.x
+
+### Changed
+
+* update to KoSIT visualization for XRechnung v3.0.x, release 2023-09-22
+* update to KoSIT testsuite for XRechnung v3.0.x, release 2023-09-22
+
+
 ## 2022-11-22
 
 This release is compatible to XRechnung 2.2.0

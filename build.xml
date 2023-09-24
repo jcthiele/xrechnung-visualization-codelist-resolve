@@ -140,11 +140,14 @@
 <!--	<property name="visualization.download.url" value="https://github.com/itplr-kosit/xrechnung-visualization/releases/download/v2020-12-31/xrechnung-2.0.1-xrechnung-visualization-2020-12-31.zip" /> -->
 <!--	<property name="visualization.download.url" value="https://github.com/itplr-kosit/xrechnung-visualization/releases/download/v2021-11-15/xrechnung-2.1.1-xrechnung-visualization-2021-11-15.zip" /> -->
 <!--	<property name="visualization.download.url" value="https://github.com/itplr-kosit/xrechnung-visualization/releases/download/v2022-01-31/xrechnung-2.2.0-xrechnung-visualization-2022-01-31.zip" /> -->
-	<property name="visualization.download.url" value="https://github.com/itplr-kosit/xrechnung-visualization/releases/download/v2022-11-15/xrechnung-2.2.0-xrechnung-visualization-2022-11-15.zip" />
+<!--	<property name="visualization.download.url" value="https://github.com/itplr-kosit/xrechnung-visualization/releases/download/v2022-11-15/xrechnung-2.2.0-xrechnung-visualization-2022-11-15.zip" /> -->
+	<property name="visualization.download.url" value="https://github.com/itplr-kosit/xrechnung-visualization/releases/download/v2023-09-22/xrechnung-3.0.1-xrechnung-visualization-2023-09-22.zip" />
+
 <!--	<property name="testsuite.download.url" value="https://github.com/itplr-kosit/xrechnung-testsuite/releases/download/release-2020-12-31/xrechnung-2.0.1-testsuite-2020-12-31.zip" /> -->
 <!--	<property name="testsuite.download.url" value="https://github.com/itplr-kosit/xrechnung-testsuite/releases/download/release-2021-11-15/xrechnung-2.1.1-testsuite-2021-11-15.zip" /> -->
 <!--	<property name="testsuite.download.url" value="https://github.com/itplr-kosit/xrechnung-testsuite/releases/download/release-2022-01-31/xrechnung-2.2.0-testsuite-2022-01-31.zip" /> -->
-	<property name="testsuite.download.url" value="https://github.com/itplr-kosit/xrechnung-testsuite/releases/download/release-2022-11-15/xrechnung-2.2.0-testsuite-2022-11-15.zip" />
+<!--	<property name="testsuite.download.url" value="https://github.com/itplr-kosit/xrechnung-testsuite/releases/download/release-2022-11-15/xrechnung-2.2.0-testsuite-2022-11-15.zip" /> -->
+	<property name="testsuite.download.url" value="https://github.com/itplr-kosit/xrechnung-testsuite/releases/download/release-2023-09-22/xrechnung-3.0.1-testsuite-2023-09-22.zip" />
 	
     <tstamp>
         <format property="build.date" pattern="yyyy-MM-dd" />

@@ -15,7 +15,7 @@
          <xd:p>
             <xd:b>Author:</xd:b> KoSIT Bremen (kosit@finanzen.bremen.de)</xd:p>
          <xd:b>Fassung vom: 2020-06-30+02:00</xd:b>
-		 <xd:b>modifiziert durch Dr. Jan Thiele am: 2022-11-21+01:00</xd:b>         
+		 <xd:b>modifiziert durch Dr. Jan Thiele am: 2023-09-23+01:00</xd:b>         
          <xd:p>Überführt eine zur EN 16931 konforme elektronische Rechnung in der konkreten Syntax UBL.2_1.CreditNote in eine Instanz gemäß des Schemas für den Namensraum urn:ce.eu:en16931:2017:xoev-de:kosit:standard:xrechnung-1.</xd:p>
          <xd:p>Das Skript setzt voraus, dass das zu verarbeitende Dokument valide bzgl. des XML Schemas und der Schematron-Regeln der Quelle ist. Für nicht valide Dokumente ist das Ergebnis nicht definiert.</xd:p>
       </xd:desc>
@@ -329,7 +329,7 @@
          <xsl:apply-templates mode="BT-27"
                               select="./cac:Party/cac:PartyLegalEntity/cbc:RegistrationName"/>
          <xsl:apply-templates mode="BT-28" select="./cac:Party/cac:PartyName/cbc:Name"/>
-         <xsl:apply-templates mode="BT-29" select="./cac:Party/cac:PartyIdentification/cbc:ID"/>
+         <xsl:apply-templates mode="BT-29" select="./cac:Party/cac:PartyIdentification/cbc:ID[not(@schemeID = 'SEPA')]"/>
          <xsl:apply-templates mode="BT-30" select="./cac:Party/cac:PartyLegalEntity/cbc:CompanyID"/>
          <xsl:apply-templates mode="BT-31"
                               select="./cac:Party/cac:PartyTaxScheme/cbc:CompanyID[following-sibling::cac:TaxScheme/cbc:ID = 'VAT']"/>
@@ -366,7 +366,7 @@
       </xr:Seller_trading_name>
    </xsl:template>
    <xsl:template mode="BT-29"
-                 match="/CreditNote:CreditNote/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID">
+      match="/CreditNote:CreditNote/cac:AccountingSupplierParty/cac:Party/cac:PartyIdentification/cbc:ID[not(@schemeID = 'SEPA')]">
       <xr:Seller_identifier>
          <xsl:attribute name="xr:id" select="'BT-29'"/>
          <xsl:attribute name="xr:src" select="xr:src-path(.)"/>
@@ -738,7 +738,7 @@
    <xsl:template mode="BG-10" match="/CreditNote:CreditNote/cac:PayeeParty">
       <xsl:variable name="bg-contents" as="item()*"><!--Der Pfad /CreditNote:CreditNote/cac:PayeeParty der Instanz in konkreter Syntax wird auf 3 Objekte der EN 16931 abgebildet. -->
          <xsl:apply-templates mode="BT-59" select="./cac:PartyName/cbc:Name"/>
-         <xsl:apply-templates mode="BT-60" select="./cac:PartyIdentification/cbc:ID"/>
+         <xsl:apply-templates mode="BT-60" select="./cac:PartyIdentification/cbc:ID[not(@schemeID = 'SEPA')]"/>
          <xsl:apply-templates mode="BT-61" select="./cac:PartyLegalEntity/cbc:CompanyID"/>
       </xsl:variable>
       <xsl:if test="$bg-contents">
@@ -758,7 +758,7 @@
       </xr:Payee_name>
    </xsl:template>
    <xsl:template mode="BT-60"
-                 match="/CreditNote:CreditNote/cac:PayeeParty/cac:PartyIdentification/cbc:ID">
+      match="/CreditNote:CreditNote/cac:PayeeParty/cac:PartyIdentification/cbc:ID[not(@schemeID = 'SEPA')]">
       <xr:Payee_identifier>
          <xsl:attribute name="xr:id" select="'BT-60'"/>
          <xsl:attribute name="xr:src" select="xr:src-path(.)"/>
@@ -1381,9 +1381,9 @@
          <xsl:apply-templates mode="BT-108" select="./cbc:ChargeTotalAmount"/>
          <xsl:apply-templates mode="BT-109" select="./cbc:TaxExclusiveAmount"/>
          <xsl:apply-templates mode="BT-110"
-                              select="/CreditNote:CreditNote/cac:TaxTotal/cbc:TaxAmount"/>
+                              select="/CreditNote:CreditNote/cac:TaxTotal/cbc:TaxAmount[/CreditNote:CreditNote/cbc:DocumentCurrencyCode = @currencyID]"/>
          <xsl:apply-templates mode="BT-111"
-                              select="/CreditNote:CreditNote/cac:TaxTotal/cbc:TaxAmount"/>
+                              select="/CreditNote:CreditNote/cac:TaxTotal/cbc:TaxAmount[/CreditNote:CreditNote/cbc:TaxCurrencyCode = @currencyID]"/>
          <xsl:apply-templates mode="BT-112" select="./cbc:TaxInclusiveAmount"/>
          <xsl:apply-templates mode="BT-113" select="./cbc:PrepaidAmount"/>
          <xsl:apply-templates mode="BT-114" select="./cbc:PayableRoundingAmount"/>
