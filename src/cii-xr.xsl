@@ -16,7 +16,7 @@
          <xd:p>
             <xd:b>Author:</xd:b> KoSIT Bremen (kosit@finanzen.bremen.de)</xd:p>
          <xd:b>Fassung vom: 2020-06-30+02:00</xd:b>
-         <xd:b>modifiziert durch Dr. Jan Thiele am: 2023-09-23+01:00</xd:b>         
+         <xd:b>modifiziert durch Dr. Jan Thiele am: 2024-09-26+01:00</xd:b>         
          <xd:p>Überführt eine zur EN 16931 konforme elektronische Rechnung in der konkreten Syntax UNCEFACT.CII.D16B in eine Instanz gemäß des Schemas für den Namensraum urn:ce.eu:en16931:2017:xoev-de:kosit:standard:xrechnung-1.</xd:p>
          <xd:p>Das Skript setzt voraus, dass das zu verarbeitende Dokument valide bzgl. des XML Schemas und der Schematron-Regeln der Quelle ist. Für nicht valide Dokumente ist das Ergebnis nicht definiert.</xd:p>
       </xd:desc>
@@ -420,11 +420,11 @@
          <xsl:apply-templates mode="BT-28"
                               select="./ram:SpecifiedLegalOrganization/ram:TradingBusinessName"/>
          <xsl:apply-templates mode="BT-29"
-                              select="./ram:ID[empty(following-sibling::ram:GlobalID/@schemeID)]"/>
+                              select="./ram:ID"/>
          <xsl:apply-templates mode="BT-29" select="./ram:GlobalID[exists(@schemeID)]"/>
          <xsl:apply-templates mode="BT-30" select="./ram:SpecifiedLegalOrganization/ram:ID"/>
          <xsl:apply-templates mode="BT-31"
-                              select="./ram:SpecifiedTaxRegistration/ram:ID[@schemeID=('VA', 'VAT')]"/>
+                              select="./ram:SpecifiedTaxRegistration/ram:ID[@schemeID='VA']"/>
          <xsl:apply-templates mode="BT-32"
                               select="./ram:SpecifiedTaxRegistration/ram:ID[@schemeID='FC']"/>
          <xsl:apply-templates mode="BT-33" select="./ram:Description"/>
@@ -457,7 +457,7 @@
       </xr:Seller_trading_name>
    </xsl:template>
    <xsl:template mode="BT-29"
-                 match="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:ID[empty(following-sibling::ram:GlobalID/@schemeID)]">
+                 match="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:ID">
       <xr:Seller_identifier>
          <xsl:attribute name="xr:id" select="'BT-29'"/>
          <xsl:attribute name="xr:src" select="xr:src-path(.)"/>
@@ -490,7 +490,7 @@
       </xr:Seller_legal_registration_identifier>
    </xsl:template>
    <xsl:template mode="BT-31"
-                 match="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:SpecifiedTaxRegistration/ram:ID[@schemeID=('VA', 'VAT')]">
+                 match="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement/ram:SellerTradeParty/ram:SpecifiedTaxRegistration/ram:ID[@schemeID='VA']">
       <xr:Seller_VAT_identifier>
          <xsl:attribute name="xr:id" select="'BT-31'"/>
          <xsl:attribute name="xr:src" select="xr:src-path(.)"/>

@@ -12,7 +12,7 @@
          <xd:p>
             <xd:b>Author:</xd:b> KoSIT Bremen (kosit@finanzen.bremen.de)</xd:p>
          <xd:b>Fassung vom: 2020-06-30+02:00</xd:b>
-         <xd:b>modifiziert durch Dr. Jan Thiele am: 2023-09-23+01:00</xd:b>
+         <xd:b>modifiziert durch Dr. Jan Thiele am: 2024-09-26+01:00</xd:b>
          <xd:p>Überführt eine zur EN 16931 konforme elektronische Rechnung in der konkreten Syntax
             UBL.2_1.Invoice in eine Instanz gemäß des Schemas für den Namensraum
             urn:ce.eu:en16931:2017:xoev-de:kosit:standard:xrechnung-1.</xd:p>
