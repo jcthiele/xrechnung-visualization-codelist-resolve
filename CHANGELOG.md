@@ -9,6 +9,7 @@ This release is compatible to XRechnung 3.0.x
 ### Changed
 
 * update to KoSIT visualization for XRechnung v3.0.x, release 2024-06-20
+* update to KoSIT test suite for XRechnung v3.0.x, release 2024-06-20
 * Codelists updated
 
 ## 2023-09-24

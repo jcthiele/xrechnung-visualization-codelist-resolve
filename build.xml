@@ -18,9 +18,12 @@
 	<property name="code.xsl.dir" location="${basedir}/code-xsl" />
 	<property name="genericode.dir" location="${basedir}/gc-codelists" />
 
-	<property name="saxon.url" value="https://sourceforge.net/projects/saxon/files/Saxon-HE/10/Java/SaxonHE10-6J.zip/download" />	
-	<property name="saxon.zip" value="SaxonHE10-6J.zip" />
-	<property name="saxon.jar" value="saxon-he-10.6.jar" />
+<!--	<property name="saxon.url" value="https://sourceforge.net/projects/saxon/files/Saxon-HE/10/Java/SaxonHE10-6J.zip/download" />	-->
+<!--	<property name="saxon.zip" value="SaxonHE10-6J.zip" /> -->
+<!--	<property name="saxon.jar" value="saxon-he-10.6.jar" /> -->
+	<property name="saxon.url" value="https://sourceforge.net/projects/saxon/files/Saxon-HE/11/Java/SaxonHE11-4J.zip/download" />	
+	<property name="saxon.zip" value="SaxonHE11-4J.zip" />
+	<property name="saxon.jar" value="saxon-he-11.4.jar" />
 
  	<property name="ant-contrib.url" value="https://sourceforge.net/projects/ant-contrib/files/ant-contrib/ant-contrib-1.0b2/ant-contrib-1.0b2-bin.zip/download" />
 	<property name="ant-contrib.zip" value="ant-contrib.zip" />
@@ -36,8 +39,21 @@
 
 
 
+<!--	<property name="3166.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:country-codes_4/genericode" /> -->
+<!--	<property name="3166.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:country-codes_5/genericode" /> -->
+<!--	<property name="3166.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:country-codes_7:technischerBestandteilGenericode" /> -->
+	<property name="3166.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:country-codes_8:technischerBestandteilGenericode" />
+	<property name="3166.filename" value="3166.xml" /> 
+	<property name="3166.xsl" value="${code.xsl.dir}/3166.xsl" />
+
+<!--	<property name="4217.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:currency-codes_2/genericode" /> -->
+	<property name="4217.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:currency-codes_3:technischerBestandteilGenericode" />
+	<property name="4217.filename" value="4217.xml" />
+	<property name="4217.xsl" value="${code.xsl.dir}/4217.xsl" />
+
 <!--	<property name="1001.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.1001_2/genericode" /> -->
-	<property name="1001.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.1001_3/genericode" />
+<!--	<property name="1001.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.1001_3/genericode" /> -->
+	<property name="1001.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.1001_4:technischerBestandteilGenericode" />
 <!--	<property name="1001.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.1001_4:technischerBestandteilGenericode" /> -->
 	<property name="1001.filename" value="1001.xml" />
 	<property name="1001.xsl" value="${code.xsl.dir}/1001.xsl" />
@@ -48,24 +64,14 @@
 	<property name="1153.xsl" value="${code.xsl.dir}/1153.xsl" />
 
 <!--	<property name="2005.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.2005_2/genericode" /> -->
-	<property name="2005.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.2005_3/genericode" /> 
-<!--	<property name="2005.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.2005_4:technischerBestandteilGenericode" /> -->
+<!--	<property name="2005.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.2005_3/genericode" /> -->
+	<property name="2005.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.2005_4:technischerBestandteilGenericode" /> 
 	<property name="2005.filename" value="2005.xml" />
 	<property name="2005.xsl" value="${code.xsl.dir}/2005.xsl" />
 
-<!--	<property name="3166.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:country-codes_4/genericode" /> -->
-	<property name="3166.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:country-codes_5/genericode" /> 
-<!--	<property name="3166.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:country-codes_7:technischerBestandteilGenericode" /> -->
-	<property name="3166.filename" value="3166.xml" />
-	<property name="3166.xsl" value="${code.xsl.dir}/3166.xsl" />
-
-<!--	<property name="4217.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:currency-codes_2/genericode" /> -->
-	<property name="4217.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:currency-codes_3:technischerBestandteilGenericode" />
-	<property name="4217.filename" value="4217.xml" />
-	<property name="4217.xsl" value="${code.xsl.dir}/4217.xsl" />
-
 <!--	<property name="4451.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.4451_2/genericode" /> -->
-	<property name="4451.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.4451_3/genericode" /> 
+<!--	<property name="4451.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.4451_3/genericode" /> -->
+	<property name="4451.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.4451_4:technischerBestandteilGenericode" /> 
 <!--	<property name="4451.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.4451_4:technischerBestandteilGenericode" /> -->
 	<property name="4451.filename" value="4451.xml" />
 	<property name="4451.xsl" value="${code.xsl.dir}/4451.xsl" />
@@ -85,19 +91,9 @@
 	<property name="5305.filename" value="5305.xml" />
 	<property name="5305.xsl" value="${code.xsl.dir}/5305.xsl" />
 
-<!--	<property name="6523.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:icd_2/genericode" /> -->
-<!--	<property name="6523.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:icd_4:technischerBestandteilGenericode" /> -->
-<!--	<property name="6523.filename" value="ICD-4.xml" /> -->
-	<!-- available as genericode - but needs manual processing, due to many special characters... -->
-	<!--
-	<property name="6523.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:icd_4:technischerBestandteilGenericode" />
-	<property name="6523.filename" value="ICD-4.xml" />
-	<property name="6523.xsl" value="${code.xsl.dir}/6523.xsl" />
-	-->
-	<property name="6523.xsl" value="6523.xsl" />
-
 <!--	<property name="7143.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.7143_2/genericode" /> -->
-	<property name="7143.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.7143_3/genericode" /> 
+<!--	<property name="7143.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.7143_3/genericode" /> -->
+	<property name="7143.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.7143_4:technischerBestandteilGenericode" /> 
 <!--	<property name="7143.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:untdid.7143_4:technischerBestandteilGenericode" /> -->
 	<property name="7143.filename" value="7143.xml" />
 	<property name="7143.xsl" value="${code.xsl.dir}/7143.xsl" />
@@ -107,15 +103,36 @@
 	<property name="7161.filename" value="7161.xml" />
 	<property name="7161.xsl" value="${code.xsl.dir}/7161.xsl" />
 
+
+<!--	<property name="6523.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:icd_2/genericode" /> -->
+<!--	<property name="6523.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:icd_4:technischerBestandteilGenericode" /> -->
+<!--	<property name="6523.filename" value="ICD-4.xml" /> -->
+	<!-- available as genericode - but needs manual processing, due to many special characters... -->
+	<!--
+	<property name="6523.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:icd_4:technischerBestandteilGenericode" />
+	<property name="6523.filename" value="ICD-4.xml" />
+	<property name="6523.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:icd_5:technischerBestandteilGenericode" />
+	<property name="6523.filename" value="ICD-5.xml" />
+	<property name="6523.xsl" value="${code.xsl.dir}/6523.xsl" />
+	-->
+	<property name="6523.xsl" value="6523.xsl" />
+
 <!--	<property name="EAS.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:eas_1/genericode" /> -->
-	<property name="EAS.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:eas_3/genericode" /> 
+<!--	<property name="EAS.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:eas_3/genericode" /> -->
 <!--	<property name="EAS.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:eas_4:technischerBestandteilGenericode" /> -->
+	<property name="EAS.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:eas_5:technischerBestandteilGenericode" /> 
 	<property name="EAS.filename" value="EAS.xml" />
 	<property name="EAS.xsl" value="${code.xsl.dir}/EAS.xsl" />
 
+<!--	<property name="VATEX.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:vatex_1/genericode" /> -->
+	<property name="VATEX.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:vatex_1:technischerBestandteilGenericode" />
+	<property name="VATEX.filename" value="VATEX.xml" />
+	<property name="VATEX.xsl" value="${code.xsl.dir}/VATEX.xsl" />
+
+
 <!--	<property name="UNECE-RE-20.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:rec20_1/genericode" /> -->
-	<property name="UNECE-RE-20.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:rec20_2/genericode" />
-<!--	<property name="UNECE-RE-20.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:rec20_3:technischerBestandteilGenericode" /> -->
+<!--	<property name="UNECE-RE-20.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:rec20_2/genericode" /> -->
+	<property name="UNECE-RE-20.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:rec20_3:technischerBestandteilGenericode" />
 	<property name="UNECE-RE-20.filename" value="UNECE-RE-20.xml" />
 	<property name="UNECE-RE-20.xsl" value="${code.xsl.dir}/UNECE-RE-20.xsl" />
 
@@ -129,25 +146,24 @@
 	<property name="UNECE-RE-21.xsl" value="UNECE-RE-21.xsl" />
 	
 
-<!--	<property name="VATEX.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:vatex_1/genericode" /> -->
-	<property name="VATEX.url" value="https://www.xrepository.de/api/xrepository/urn:xoev-de:kosit:codeliste:vatex_1:technischerBestandteilGenericode" />
-	<property name="VATEX.filename" value="VATEX.xml" />
-	<property name="VATEX.xsl" value="${code.xsl.dir}/VATEX.xsl" />
-
-
 	
 	<!-- visualization tool -->
 <!--	<property name="visualization.download.url" value="https://github.com/itplr-kosit/xrechnung-visualization/releases/download/v2020-12-31/xrechnung-2.0.1-xrechnung-visualization-2020-12-31.zip" /> -->
 <!--	<property name="visualization.download.url" value="https://github.com/itplr-kosit/xrechnung-visualization/releases/download/v2021-11-15/xrechnung-2.1.1-xrechnung-visualization-2021-11-15.zip" /> -->
 <!--	<property name="visualization.download.url" value="https://github.com/itplr-kosit/xrechnung-visualization/releases/download/v2022-01-31/xrechnung-2.2.0-xrechnung-visualization-2022-01-31.zip" /> -->
 <!--	<property name="visualization.download.url" value="https://github.com/itplr-kosit/xrechnung-visualization/releases/download/v2022-11-15/xrechnung-2.2.0-xrechnung-visualization-2022-11-15.zip" /> -->
-	<property name="visualization.download.url" value="https://github.com/itplr-kosit/xrechnung-visualization/releases/download/v2023-09-22/xrechnung-3.0.1-xrechnung-visualization-2023-09-22.zip" />
+<!--	<property name="visualization.download.url" value="https://github.com/itplr-kosit/xrechnung-visualization/releases/download/v2023-09-22/xrechnung-3.0.1-xrechnung-visualization-2023-09-22.zip" /> -->
+	<property name="visualization.download.url" value="https://github.com/itplr-kosit/xrechnung-visualization/releases/download/v2024-06-20/xrechnung-3.0.2-xrechnung-visualization-2024-06-20.zip" />
+
+
 
 <!--	<property name="testsuite.download.url" value="https://github.com/itplr-kosit/xrechnung-testsuite/releases/download/release-2020-12-31/xrechnung-2.0.1-testsuite-2020-12-31.zip" /> -->
 <!--	<property name="testsuite.download.url" value="https://github.com/itplr-kosit/xrechnung-testsuite/releases/download/release-2021-11-15/xrechnung-2.1.1-testsuite-2021-11-15.zip" /> -->
 <!--	<property name="testsuite.download.url" value="https://github.com/itplr-kosit/xrechnung-testsuite/releases/download/release-2022-01-31/xrechnung-2.2.0-testsuite-2022-01-31.zip" /> -->
 <!--	<property name="testsuite.download.url" value="https://github.com/itplr-kosit/xrechnung-testsuite/releases/download/release-2022-11-15/xrechnung-2.2.0-testsuite-2022-11-15.zip" /> -->
-	<property name="testsuite.download.url" value="https://github.com/itplr-kosit/xrechnung-testsuite/releases/download/release-2023-09-22/xrechnung-3.0.1-testsuite-2023-09-22.zip" />
+<!--	<property name="testsuite.download.url" value="https://github.com/itplr-kosit/xrechnung-testsuite/releases/download/release-2023-09-22/xrechnung-3.0.1-testsuite-2023-09-22.zip" /> -->
+	<property name="testsuite.download.url" value="https://github.com/itplr-kosit/xrechnung-testsuite/releases/download/release-2024-06-20/xrechnung-3.0.2-testsuite-2024-06-20.zip" />
+	
 	
     <tstamp>
         <format property="build.date" pattern="yyyy-MM-dd" />
@@ -196,10 +212,16 @@
     <target name="prepare-saxon" depends="init" description="Download Saxon-HE and add jar to library directory">
         <get src="${saxon.url}" dest="${download.dir}/${saxon.zip}" verbose="true" skipexisting="true" usetimestamp="true" />
         <unzip src="${download.dir}/${saxon.zip}" dest="${lib.dir}">
+		<!--
             <patternset>
                 <include name="**/${saxon.jar}" />
+				<include name="**/lib"/>
+				<include name="**/lib/jline-2.14.6.jar"/>
+				<include name="**/lib/xmlresolver-4.4.3.jar"/>
+				<include name="**/lib/xmlresolver-4.4.3-data.jar"/>
             </patternset>
-            <flattenmapper />
+			-->
+            <!--<flattenmapper />-->
         </unzip>
     </target>  
 
