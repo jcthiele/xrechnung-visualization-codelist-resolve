@@ -1,3 +1,5 @@
+# ACHTUNG: Weiterentwicklung ist derzeit pausiert!
+
 # xrechnung-visualization-codelist-resolve
 Resolving codelists for XRechnung-Visualization
 
